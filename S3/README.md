@@ -4,7 +4,7 @@
 
 S3 (Simple Storage Service) es un servicio de almacenamientos de archivos en internet, basado en Objetos.
 
-## Carácteristicas Básica de S3
+## Carácteristicas y funcionalidades de S3
 
 * S3 usa un `namespace` universal y debe ser único de manera global.
 * La url tiene formato `https://<aws-region>.amazonaws.com/<global-unique-name>`
@@ -14,6 +14,10 @@ S3 (Simple Storage Service) es un servicio de almacenamientos de archivos en int
 * Soporta MFA para la eliminación de archivos 
 * Consistencia de lectura despues de escritura para `PUTS` de nuevos objetos.
 * Consistencia eventual para sobre escritura `PUTS`y eliminación de objetos `DELETE` (Toma tiempo en propagar los cambios). 
+* Cifrado.
+* Versionamiento.
+* Gestión del ciclo de vida.
+* Listas de control de acceso y políticas en `Buckets`.
 
 ## Garantías de S3 ofrecidas por Amazon
 
@@ -73,6 +77,3 @@ Es la opción más económica para almacenar datos en S3, los tiempos de recuper
 - `Subresources` 
   - Listas de control de acceso.
   - Torrent
-
-
-
