@@ -130,3 +130,4 @@ En vez de cargar directamente hacia el `bucket` se utiliza una `URL` distinto pa
 
 ### SnowBall
 
+![snowball](snowball_box.jpeg)
