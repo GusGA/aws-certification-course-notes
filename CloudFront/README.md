@@ -6,7 +6,7 @@ Es un servicio **CDN** (`Content Delivery Network`), una red de distribución de
 
 `CloudFront` puede ser usado para servir un sitio web entero, incluyendo contenido dinámico, estático, streaming e interactivo usando una red global de `Edge Locations`.
 
-Las peticiones por el contenido son automáticamente enrutadas hacia lo `Edge Location` más cercana, así el contenido es servido con el mejor `performance` posible.
+Las peticiones por el contenido son automáticamente enrutadas hacia la `Edge Location` más cercana, así el contenido es servido con el mejor `performance` posible.
 
 ## Terminología
 
