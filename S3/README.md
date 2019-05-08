@@ -128,4 +128,5 @@ La aceleración de transferencia de S3 es un servicio que utiliza la `Cloudfront
 
 En vez de cargar directamente hacia el `bucket` se utiliza una `URL` distinto para cargar el archivo directo a la `Edge Location` más cercana al usuario y posteriormente hacia el `bucket` de S3.
 
+### SnowBall
 
