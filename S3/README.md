@@ -77,3 +77,55 @@ Es la opción más económica para almacenar datos en S3, los tiempos de recuper
 - `Subresources` 
   - Listas de control de acceso.
   - Torrent
+
+## Cifrado 
+
+Por defecto los `buckets` recién creados son privados, además puedes configurar el control de acceso a través de Políticas de Buckets (`Bucket policies`) y de listas de control de acceso (`Access Control List`).
+
+Los buckets de S3 pueden configurarse para crear `logs` de accesos los cuales registran cualquier petición hecha al bucket, esto puede ser enviado a otro bucket inclusive a otro bucket en otra cuenta.
+
+### Cifrado en tránsito.
+
+El cifrado en tránsito se realiza cuando la comunicación entre el cliente y el servidor esta bajo el protocolo `HTTPS`, ya que el mismo cifra el contenido de las peticiones y si estas son interceptadas no pueden descifradas.
+
+### Cifrado del lado del servidor (Encryption at rest)
+
+`Encryption at rest` es el cifrado que se realiza sobre los datos al momento de guardarlos, puede ser realizada desde el cliente o desde el servidor.
+
+Desde el cliente se cifra el objeto y se lo envia a S3.
+
+Desde el servidor, AWS gestiona las llaves de cifrado y puede ser obtenido de las siguientes maneras:
+  * S3 Managed Keys - SSE-S3 (`Server Side Encryption S3`) (Gestión de llaves por parte de aws).
+  * AWS Key Management Service - SSE-KMS (`Server Side Encryption Key Management Service`) (Gestión compartida en entre el usuario y AWS en el manejo de las llaves).
+  * Server Side Encryption With Customer Provided Keys - SSE-C (El usuario le provee a AWS las llaves para el cifrado de los objetos en S3).
+
+### Versionamiento de los objetos de S3
+
+* Almacena todas las versiones de un objeto, incluido todas las escrituras hasta las eliminaciones.
+* Gran herramienta de respaldo.
+* Una vez activado, el versionamiento no puede ser deshabilitado, solo suspendido.
+* Integra reglas para el ciclo de vida.
+* El versionamiento incluye la funcionalidad de `MFA DELETE`, donde se usa el multi-factor de autenticación y puede ser provisto como otra capa de seguridad.
+
+### Gestión del ciclo de vida en S3
+
+* Automatiza el movimiento de objetos entre diferentes [`tiers`](#Tipos-de-almacenamiento) de almacenamientos.
+* Puede ser usado en combinación con el versionamiento.
+* Puede ser aplicados a versiones actuales y previas.
+
+### Replicación entre regiones.
+
+* El versionamiento debe esta activo en ambos `buckets`, tanto en el origen como en el destino.
+* Las regiones deben ser únicas.
+* Los archivos en un `bucket` existente no son replicados automáticamente.
+* Las siguientes cargas de archivos serán replicadas automáticamente.
+* Las marcas de eliminación no son replicadas.
+* Eliminar versiones individualmente o eliminaciones de las marcas de borrado no serán replicadas.
+
+### Acelaración de transferencia.
+
+La aceleración de transferencia de S3 es un servicio que utiliza la `Cloudfront Edge Network` para acelerar las cargas hacia S3.
+
+En vez de cargar directamente hacia el `bucket` se utiliza una `URL` distinto para cargar el archivo directo a la `Edge Location` más cercana al usuario y posteriormente hacia el `bucket` de S3.
+
+
