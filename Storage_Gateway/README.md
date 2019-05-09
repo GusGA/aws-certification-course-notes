@@ -56,7 +56,7 @@ Los tamaños de los Cached Volumes van de 1GB a 32TB.
 ![aws-storage-gateway-cached-diagram](aws-storage-gateway-cached-diagram.png)
 
 
-#### Tape Gateway
+### Tape Gateway
 
 Tage Gateway ofrece una solución durable y costo-efectiva para archivar los datos en la nube de AWS. La interface de Biblioteca de cintas virtuales (VTL) permite a la existente infraestructura de respaldo basada en Cintas (Tape-based) apalancar el almacenamiento en cintas virtuales que son creadas en el tape gateway.
 

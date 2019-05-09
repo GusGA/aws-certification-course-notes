@@ -10,6 +10,7 @@ S3 (Simple Storage Service) es un servicio de almacenamientos de archivos en int
 * La url tiene formato `https://<aws-region>.amazonaws.com/<global-unique-name>`
 * Cuando cargas un archivo a S3, obtienes un status HTTP 200 si la carga fue exitosa.
 * Almacenamiento casí infinito.
+* Los archivos pueden ser de 0 bytes hasta 5TB.
 * Los archivos son almacenados en `buckets` que son una especie de directorios
 * Soporta MFA para la eliminación de archivos 
 * Consistencia de lectura despues de escritura para `PUTS` de nuevos objetos.
