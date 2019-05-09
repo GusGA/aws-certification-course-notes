@@ -25,7 +25,6 @@ Los archivos son almacenados como objetos en `buckets` de S3 y son accesados a t
 
 Una vez tranferido el objeto a S3, estos pueden ser manejafos como objetos nativos de S3, y las políticas de `bucket` como versionamiento, gestión del ciclo de vida y la replicación entre regiones pueden ser aplicadas directamente en el objeto almacenado en el `bucket`.
 
-Diagrama:
 ![file-gateway](file-gateway-concepts-diagram.png)
 
 ### Volume Gateway
@@ -42,5 +41,27 @@ Stored volumes permiten almacenar tu datos primarios localmente mientras asincro
 
 Se puede crear volúmenes de almacenamiento y montarlos como dispositivos iSCSI desde los servidores de aplicaciones `on-premise`. Los datos escritos en estos volúmenes son almacenados en el hardware de almacenamiento, estos datos son respaldados de manera asincrona hacia AWS S3 en forma de snapshots de Amazon Elastic Block Store (Amazon EBS).
 
-Los tamaños de los Stored Volumes van de 1GB a 16GB.
+Los tamaños de los Stored Volumes van de 1GB a 16TB.
 
+![aws-storage-gateway-stored-diagram](aws-storage-gateway-stored-diagram.png)
+
+#### Cached Volumes
+
+Cached volumes permite usar AWS S3 como almacenamiento de datos primario mientras que es retenida localmente los datos de acceso frecuente en el storage gateway. Los volúmenes Cacheados minimizan la necesidad de scalar la infraestructura de almacenamiento `on-premise` mientras se provee de baja latencia a las aplicaciones que acceden a los datos de acceso frecuente.
+
+Se pueden crear volúmens de hasta 32 TiB de tamaño y adjuntarlos como dispositivos iSCIS desde los servidores de aplicaciones `on-premise`. Los gateway stores de datos se escriben en los volumnes en AWS S3 y conservan las lecturas recientes en el cache de los gateways storage `on-premise` y cargan lo almacenado en el búfer.
+
+Los tamaños de los Cached Volumes van de 1GB a 32TB.
+
+![aws-storage-gateway-cached-diagram](aws-storage-gateway-cached-diagram.png)
+
+
+#### Tape Gateway
+
+Tage Gateway ofrece una solución durable y costo-efectiva para archivar los datos en la nube de AWS. La interface de Biblioteca de cintas virtuales (VTL) permite a la existente infraestructura de respaldo basada en Cintas (Tape-based) apalancar el almacenamiento en cintas virtuales que son creadas en el tape gateway.
+
+Cada tape gateway es preconfigurada con un convertidor de medios y contoladores de cintas, los cuales estan disponibles para la apliaciones clientes de respaldo como dispositivos iSCSI.
+
+Se agregan cartuchos de cintas como se necesiten para almacenar los datos. Estan soportados por **Netbackup**, **Backup Exec**, **Veeam**, etc.
+
+![Gateway-VTL-Architecture2-diagram](Gateway-VTL-Architecture2-diagram.png)
