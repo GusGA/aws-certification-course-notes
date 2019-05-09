@@ -138,3 +138,9 @@ Snowball es un servicio transporte de datos en la escala de petabytes que usa di
 Usar `Snowball` aborda los desafios comunes de transferir grandes cantidades de datos incluidos los altos costos de las redes, tiempos de transferencia y preocupaciones de seguridad.
 
 Transferir datos con `Snowball`es simple, rápido, seguro y puede llegar a costar 1/5 del costo de una conexión de internet de alta velocidad.
+
+#### Funcionalidades de Snowball
+
+* Importar a S3.
+* Exportar de S3.
+* Ejecutar `lambda jobs` dentro del dispositivo.
