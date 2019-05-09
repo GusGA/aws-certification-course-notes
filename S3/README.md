@@ -115,7 +115,7 @@ Desde el servidor, AWS gestiona las llaves de cifrado y puede ser obtenido de la
 
 ### Replicación entre regiones.
 
-* El versionamiento debe esta activo en ambos `buckets`, tanto en el origen como en el destino.
+* [El versionamiento](#versionamiento-de-los-objetos-de-s3) debe esta activo en ambos `buckets`, tanto en el origen como en el destino.
 * Las regiones deben ser únicas.
 * Los archivos en un `bucket` existente no son replicados automáticamente.
 * Las siguientes cargas de archivos serán replicadas automáticamente.
