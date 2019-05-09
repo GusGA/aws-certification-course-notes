@@ -8,3 +8,4 @@ Notas del curso de AWS-SA escritas en español.
 
 * [S3](/S3)
 * [CloudFront](/CloudFront)
+* [Storage Gateway](/Storage_Gateway)
