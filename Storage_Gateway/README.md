@@ -65,3 +65,19 @@ Cada tape gateway es preconfigurada con un convertidor de medios y contoladores 
 Se agregan cartuchos de cintas como se necesiten para almacenar los datos. Estan soportados por **Netbackup**, **Backup Exec**, **Veeam**, etc.
 
 ![Gateway-VTL-Architecture2-diagram](Gateway-VTL-Architecture2-diagram.png)
+
+## Resumen
+
+### File Gateway
+
+Almacenamiento de archivos planos directamente en S3
+
+### Volumen Gatewqay
+
+  - **Stored Volumes**: El dataset entero es almacenado `on site` y respaldado asincronamente en S3.
+  - **Cached Volumes**: El dataset entero es almacenado en S3 y los datos con mayor frecuencia de acceso son cacheado `on-site.
+
+### Gateway Virtual Tape Library
+
+Usado para respaldos y compatible con las aplicaciones de respaldo como NetBackup, Backup Exec, Veeam, etc.
+ 
