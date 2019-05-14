@@ -24,3 +24,21 @@ Le permite pujar, independientemente del precio que desee por la capacidad de la
 ### Dadicated Host
 Servidores EC2 dedicados, estos pueden ayudar a reducir costos permitiendo utilizar licencias de software existente enlazada al servidor.
 
+### Carácteristicas
+
+* Por defecto la proteción de terminación de las instancias esta en `off`, debe ser ajustada a `on`.
+* En una Instancia de EBS, la acción por defecto es para el volumen root EBS es ser eliminado cuando la instancia es finalizada, se puede cambiar esta acción y terminar la instancia sin eliminar el volumen root.
+* Los volúmenes root EBS del AMI por defecto no puede ser cifrada, pero se puede hacer via aplicaciones de terceros para cifrar el volumen o crear un AMI desde la consola o vía API.
+* Volumenes adicionales pueden ser cifrados.
+
+### Grupos de seguridad
+
+* Los cambios efectuados en los grupos de seguridad tienen efectos inmediatos en las instancias involucradas.
+* Todo el tráfico de entrada por defecto esta bloqueado.
+* Todo el tráfico de salida esta permitido.
+* Puede tener cualquier numero de instancias de EC2 bajo el mismo grupo de seguridad.
+* Puede tener multiples grupos de seguridad bajo la misma instancia de EC2.
+* Los grupos de seguridad son `STATEFULL`.
+* Si crea una regla de tráfico de entrada, automaticamente esta permitido el tráfico de salida por el mismo puerto.
+* `NO` se puede bloquear una IP específica usando grupos de seguridad, a cambio se usan las Lista de control de acceso de red (`Network Access Control List`).
+* Puedes espeficiar reglas que permitan acceso pero no para negarlo.
