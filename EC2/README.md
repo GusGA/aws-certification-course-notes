@@ -21,6 +21,8 @@ Provee una capacidad de reserva y un descuento por la carga en las horas de una 
 ### Spot 
 Le permite pujar, independientemente del precio que desee por la capacidad de la instancia, proporcionando un ahorro cada vez mayor si la aplicación tiene tiempos de inicio y finalización flexibles. 
 
+Si es finalizada la instancia por AWS no tendrá ningún costo el uso parcial por hora en, cambio si la instancia es finalizada por el usuario tendrá un cobro por cualquier hora en la cual la instancia haya corrido.
+
 ### Dadicated Host
 Servidores EC2 dedicados, estos pueden ayudar a reducir costos permitiendo utilizar licencias de software existente enlazada al servidor.
 
