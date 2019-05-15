@@ -49,3 +49,17 @@ Cada volumnes de EBS es replicada autimáticamente dentro de su zona de disponib
 
 * Para mover un volumen de EC2 de una AZ a otra, se debe hacer un snapshot del mismo, crear un AMI del snapshot y luego usarlo para crear una nueva instancia en una nueva AZ.
 * Para mover un volumen de EC2 a otra región, se debe hacer un snapshot del mismo, crear un AMI del snapshot y copiarlo de una región a otra, luego usar esa AMI para crear una nueva instancia de EC2 en una nueva región.
+
+### EBS vs. Instance Store Volumes
+
+* Los Instance Store volumes son almacenamientos efímeros
+* Los ISV no pueden ser detenidos y si su host falla, la data almacenada se pierde.
+* EBS pueden ser detenidos y la data no se pierde si la instancia es detenida.
+* Puede ser reiniciada y los datos no se pierden.
+* Por defecto, ambos Root volumes puede ser borrados en `termination`. Sin embargo, con volúmenes EBS, se le puede indicar a AWS que mantenga el root device volume. 
+
+### Cifrado
+
+* Los snapshots de volumenes cifrados son cifrados automaticamente.
+* Volumenes restaurados desde snapshots crifrados tambien son cifrados automaticamente.
+* Se pueden compartir snapshots, pero solo si no estan cifrados, inclusive entre cuentas de AWS.
