@@ -6,12 +6,10 @@ Notas del curso de AWS-SA escritas en español.
 
 # Tópicos o servicios con anotaciones
 
-* [S3](/S3)
-* [CloudFront](/CloudFront)
-* [Storage Gateway](/Storage_Gateway)
-* [EC2](/EC2)
-* [EBS](/EBS)
-
-# TODO
-
-Actualizar al 2020
+- [IAM](/IAM)
+- [AWS Organizations](/AWS_Organizations)
+- [S3](/S3)
+- [CloudFront](/CloudFront)
+- [Storage Gateway](/Storage_Gateway)
+- [EC2](/EC2)
+- [EBS](/EBS)

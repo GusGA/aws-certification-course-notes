@@ -213,6 +213,26 @@ Se puede obtener mejor desempeño distribuyendo las lecturas a traves de diferen
 - Paralelizar la descargas en rangos de bytes (S3 Byte-Range fetches)
 - Si existe una falla en la descarga, sera específica de un rango de bytes,
 
+#### S3 Select
+
+S3 Select habilita a las aplicaciones a obtener solo un subconjunto de datos de un objeto usando expresiones SQL, con ello solo se obtiene los datos necesarios para la aplicación, alcanzando incrementos drasticos de performance en muchos casos, hasta un 400% de mejoras.
+
+Ejemplo: Caso típico donde se tienen almacenados archivos zip que contienen archivos csv, sin `S3 Select` se necesita descargar, descromprimir y procesar el archivo CSV entero para poder obtener los datos que se necesitan.
+
+##### Características básicas
+
+- `S3 Select` se usa solo para obtener **solo subconjutos** de datos usando expresiones SQL
+- Se obtiene los datos por **columnas o filas** usando expresiones SQL.
+- Hay un **ahorro importante en transferencia de datos** y se incrementa la velocidad.
+
+#### S3 Glacier Select
+
+Glacier Select permite ejecutar consultas SQL directo en S3 Glacier tier.
+
+Compañias pertenencientes a industrias altamente reguladas escriben directo en `Glacier Select` ya que cumple con regulaciones como **SEC Rule 17a-4** o **HIPAA**.
+
+Usuarios de S3 tienen politicas del ciclo de vida diseñadas para ahorrar en costos de almacenamiento moviendo sus datos hacia `S3 Glacier cuando no require acceder a sus datos de manera frecuente.
+
 ### Replicación entre regiones.
 
 - [El versionamiento](#versionamiento-de-los-objetos-de-s3) debe esta activo en ambos `buckets`, tanto en el origen como en el destino.
