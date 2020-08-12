@@ -233,6 +233,14 @@ Compañias pertenencientes a industrias altamente reguladas escriben directo en 
 
 Usuarios de S3 tienen politicas del ciclo de vida diseñadas para ahorrar en costos de almacenamiento moviendo sus datos hacia `S3 Glacier cuando no require acceder a sus datos de manera frecuente.
 
+### Acceso a Buckets de S3 entre cuentas
+
+#### Vias en la que se pueden compartir `buckets` entre cuentas
+
+- Usando Politicas de Buckets y [IAM](../IAM) (Aplica para el bucket entero), **acceso solo via programación**.
+- Usando Listas de control de acceso en Buckets y [IAM](../IAM) (objetos individuales), **acceso solo via programación**.
+- Roles IAM entre cuentas, acceso via consola web y programación.
+
 ### Replicación entre regiones.
 
 - [El versionamiento](#versionamiento-de-los-objetos-de-s3) debe esta activo en ambos `buckets`, tanto en el origen como en el destino.
