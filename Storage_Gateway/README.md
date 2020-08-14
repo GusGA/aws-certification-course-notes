@@ -10,14 +10,13 @@ El Storage Gateway puede ser un dispositivo físico o virtual ubicado en un data
 
 Puede ser descargado como una imagen de una maquina virtual que puede ser instalada como host en el datacenter. Storage Gateway soporta `VMware ESXi` o `Microsoft Hyper-V`. Una vez instalado en el `gateway` y asociado a una cuenta de AWS mediante un proceso de activación, se puede usar la cónsola de gestión de AWS para crear la opción de storage gatway más conveniente.
 
-
 ## Tipos de Storage Gateway
 
-* File Gateway (NFS)
-* Volume Gateway (iSCSI)
-  * Stored Volumes
-  * Cached Volumes
-* Tape Gateway
+- File Gateway (NFS & SMB)
+- Volume Gateway (iSCSI)
+  - Stored Volumes
+  - Cached Volumes
+- Tape Gateway
 
 ### File Gateway
 
@@ -47,14 +46,13 @@ Los tamaños de los Stored Volumes van de 1GB a 16TB.
 
 #### Cached Volumes
 
-Cached volumes permite usar AWS S3 como almacenamiento de datos primario mientras que es retenida localmente los datos de acceso frecuente en el storage gateway. Los volúmenes Cacheados minimizan la necesidad de scalar la infraestructura de almacenamiento `on-premise` mientras se provee de baja latencia a las aplicaciones que acceden a los datos de acceso frecuente.
+Cached volumes permite usar AWS S3 como almacenamiento de datos primario mientras retiene localmente los datos de acceso frecuente en el `on-premise` storage gateway. Los volúmenes Cacheados minimizan la necesidad de scalar la infraestructura de almacenamiento `on-premise` mientras se provee de baja latencia a las aplicaciones que acceden a los datos de acceso frecuente.
 
 Se pueden crear volúmens de hasta 32 TiB de tamaño y adjuntarlos como dispositivos iSCIS desde los servidores de aplicaciones `on-premise`. Los gateway stores de datos se escriben en los volumnes en AWS S3 y conservan las lecturas recientes en el cache de los gateways storage `on-premise` y cargan lo almacenado en el búfer.
 
 Los tamaños de los Cached Volumes van de 1GB a 32TB.
 
 ![aws-storage-gateway-cached-diagram](aws-storage-gateway-cached-diagram.png)
-
 
 ### Tape Gateway
 
@@ -74,10 +72,9 @@ Almacenamiento de archivos planos directamente en S3
 
 ### Volumen Gatewqay
 
-  - **Stored Volumes**: El dataset entero es almacenado `on site` y respaldado asincronamente en S3.
-  - **Cached Volumes**: El dataset entero es almacenado en S3 y los datos con mayor frecuencia de acceso son cacheado `on-site.
+- **Stored Volumes**: El dataset entero es almacenado `on site` y respaldado asincronamente en S3.
+- **Cached Volumes**: El dataset entero es almacenado en S3 y los datos con mayor frecuencia de acceso son cacheado `on-site.
 
 ### Gateway Virtual Tape Library
 
 Usado para respaldos y compatible con las aplicaciones de respaldo como NetBackup, Backup Exec, Veeam, etc.
- 

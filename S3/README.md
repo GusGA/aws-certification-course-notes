@@ -279,3 +279,32 @@ Transferir datos con `Snowball`es simple, rápido, seguro y puede llegar a costa
 - La replicación puede ser cada hora, diaria o semanal.
 - Solo hay que instalar el `DataSync agent` para empezar la sincronización.
 - Puede ser usado para replicar EFS a EFS.
+
+## Athena vs Macie
+
+### ¿Que es Athena?
+
+Servicio interactivo de consultas el cual esta habilita analizar y consultar datos localizados en S3 usando SQL estandar.
+
+- Serverless, nada que aprovisionar, se paga por query/TB escaneado.
+- No hay necesidad de configurar complejos procesos de Extracción/Transformación/Carga (ETL).
+- Trabaja directamente con datos almacenados en s3
+
+### ¿Para que puede ser usado?
+
+- Para consultar log files almacenados en S3.
+- Generar reportes de negocios en base a datos almacenados en S3.
+- Analizar costos y reportes de uso en AWS.
+- Correr consultas en datos de `click-stream`.
+
+### ¿Que es Macie?
+
+Servicio de seguridad que utiliza Machine Learning y Procesamiento de lenguaje natural (NLP) para descubrir, clasificar y proteger datos sensibles almacenados en S3.
+
+#### Carácteristicas de Macie
+
+- Usa inteligencia artificial para reconocer si un objeto de S3 contiene datos sensibles como Información personal identificable (PPI).
+- Dashboards, reportes y alertas.
+- Trabaja directamente con datos almacenados en S3.
+- Puede tambien analizar logs de CloudTrail
+- Excelente para PCI-DSS y prevenir robos de identidad.
