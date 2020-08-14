@@ -10,17 +10,42 @@ Las peticiones por el contenido son automáticamente enrutadas hacia la `Edge Lo
 
 ## Terminología
 
-* **Edge Location**: Esta es la ubicación donde se encuenta el contenido cacheado, esta separado de una región AWS o Zona de disponibilidad.
-* **Origin**: Este es el origen de los archivos que el servicio CDN va a distribuir, esto puede ser un bucket de S3, una instancia de EC2, un Balanceador de carga de Elastic o Route53.
-* **Distribution**: Este es el nombre dado al CDN que consiste en un conjunto de `Edge Location`
+- **Edge Location**: Esta es la ubicación donde se encuenta el contenido cacheado, esta separado de una región AWS o Zona de disponibilidad.
+- **Origin**: Este es el origen de los archivos que el servicio CDN va a distribuir, esto puede ser un bucket de S3, una instancia de EC2, un Balanceador de carga de Elastic o Route53.
+- **Distribution**: Este es el nombre dado al CDN que consiste en un conjunto de `Edge Location`
 
 ## Tipos de Distribución
 
-*  Distribución Web: Típicamente usado para sitios web.
-* RTPM: Usado para streaming de contendido.
+- **Web Distribution**: Típicamente usado para sitios web.
+- **RTPM**: Usado para streaming de contendido. (Descontinuado a partir del 31/12/2020)
 
 ## Carácteristicas
 
-* Los `Edge Locations` no son de solo lectura, puede escribirse contenido allí.
-* Los objetos cacheados por el tiempo de vida configurado (TTL).
-* Se puede eliminar contenido cacheado pero tiene un costo extra.
+- Los `Edge Locations` no son de solo lectura, puede escribirse contenido allí.
+- Los objetos cacheados por el tiempo de vida configurado (TTL).
+- Se puede eliminar contenido cacheado pero tiene un costo extra.
+
+## Cloudfront signed url and cookies
+
+Cuando se crean signed urls o signed cookies, se adjunta una politica y esta puede incluir: expiración del URL, rangos de IP, `Trusted signers` (cuentas de AWS que puedan crear **Signed URLs**)
+
+- Usa signed URL/Cookies cuando necesites asegurar contenido que solo personas autorizadas esten habilitadas para acceder.
+- Si el origen es `EC2` puedes usar Cloudfront.
+
+### ¿Cuando usar **Signed URLs** o **Signed Cookies**?
+
+- Las **Signed URL** se usan para identificar archivos individuales. Ejemplo: 1 archivo = 1URL
+- Las **Signed Cookies** se usan para multiples archivos. Ejemplo 1 cookie = Multiples archivos
+
+#### Caracteristicas de Cloudfront Signed URL
+
+- Pueden tener diferentes origenes, (No necesita ser un `EC2`).
+- Puede utulizar funcionalidades de caching
+- La generación de la par de llaves, abarca toda la cuenta manejada por el usuario root de AWS.
+- Puede filtra por fecha, path, IP, direccion, expiración, etc.
+
+#### Diferencias de S3 Signed URL
+
+- No se usa cloudfront para acceder al recurso
+- Crea una petición como el usuario IAM que creó la signed URL
+- Tienen una vida limitada
