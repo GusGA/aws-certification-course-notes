@@ -46,7 +46,7 @@ Los tamaños de los Stored Volumes van de 1GB a 16TB.
 
 #### Cached Volumes
 
-Cached volumes permite usar AWS S3 como almacenamiento de datos primario mientras retiene localmente los datos de acceso frecuente en el `on-premise` storage gateway. Los volúmenes Cacheados minimizan la necesidad de scalar la infraestructura de almacenamiento `on-premise` mientras se provee de baja latencia a las aplicaciones que acceden a los datos de acceso frecuente.
+Cached volumes permite usar AWS S3 como almacenamiento de datos primario mientras retiene localmente los datos de acceso frecuente en el `on-premise` storage gateway. Los volúmenes Cacheados minimizan la necesidad de escalar la infraestructura de almacenamiento `on-premise` mientras se provee de baja latencia a las aplicaciones que acceden a los datos de acceso frecuente.
 
 Se pueden crear volúmens de hasta 32 TiB de tamaño y adjuntarlos como dispositivos iSCIS desde los servidores de aplicaciones `on-premise`. Los gateway stores de datos se escriben en los volumnes en AWS S3 y conservan las lecturas recientes en el cache de los gateways storage `on-premise` y cargan lo almacenado en el búfer.
 
@@ -73,7 +73,7 @@ Almacenamiento de archivos planos directamente en S3
 ### Volumen Gatewqay
 
 - **Stored Volumes**: El dataset entero es almacenado `on site` y respaldado asincronamente en S3.
-- **Cached Volumes**: El dataset entero es almacenado en S3 y los datos con mayor frecuencia de acceso son cacheado `on-site.
+- **Cached Volumes**: El dataset entero es almacenado en S3 y los datos con mayor frecuencia de acceso son cacheado `on-site`.
 
 ### Gateway Virtual Tape Library
 
