@@ -56,6 +56,10 @@ Los cargos son menores que los de `S3 Standard` pero tiene un cargo extra por ac
 
 Cuando se desea una opción de bajo costo para datos de acceso poco frecuente pero no requiere resilencia en multiples zonas de disponibilidad.
 
+#### Availability of S3 – OneZone-IA
+
+**99.50%**
+
 ### S3 Intelligent Tiering
 
 Diseñado para optimizar costos automatizando el movimiento de los datos al `tier` con mejor relación costo-efectividad sin impactar en el `performance` o el sobreexigimiento operacional.
@@ -308,3 +312,17 @@ Servicio de seguridad que utiliza Machine Learning y Procesamiento de lenguaje n
 - Trabaja directamente con datos almacenados en S3.
 - Puede tambien analizar logs de CloudTrail
 - Excelente para PCI-DSS y prevenir robos de identidad.
+
+## Estilos de URL de S3
+
+### Path-style request
+
+`https://s3.Region.amazonaws.com/bucket-name/key-name`
+
+### Virtual Hosted-Style Requests
+
+`https://bucket-name.s3.Region.amazonaws.com/key-name`
+
+### Legacy Global Endpoint
+
+`bucket-name.s3.amazonaws.com`
