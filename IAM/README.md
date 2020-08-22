@@ -42,3 +42,10 @@ Es la cuenta creada en la cinfiguración incial de la cuenta AWS y tiene complet
 - Las llaves solo pueden ser vistas una vez, si son perdidas deben ser regenaradas de nuevo.
 - Es universal, hasta la fecha no aplica solo a regiones.
 - El Access Key ID y el secret access key no puede sen usadas para acceder a la consola de aws, no funcionan como el password.
+
+## Roles
+
+- Son más seguros que almacenar las llaves de acceso y secreta en instancias individuales de EC2.
+- Son mucho más faciles de manejar.
+- Roles pueden ser asignados a una instancia de EC2 despues de su creación usando consola(web) y CLI.
+- Roles son universales, pueden ser usadas en cualquier region.

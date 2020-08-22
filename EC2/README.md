@@ -74,3 +74,33 @@ Servidores EC2 dedicados, estos pueden ayudar a reducir costos permitiendo utili
 - Si crea una regla de tráfico de entrada, automaticamente esta permitido el tráfico de salida por el mismo puerto.
 - **NO** se puede bloquear una IP específica usando grupos de seguridad, a cambio se usan las Lista de control de acceso de red (`Network Access Control List`).
 - Puedes espeficiar reglas que permitan acceso pero no para negarlo.
+
+## Spot Instances & Spot Fleets
+
+**Amazon EC2 Spot Instances** permite aprovechar capacidad de EC2 sin uso en la nubes de AWS. los Spot Instances estan disponibles con descuento de hasta 90% comparado con los precios `on-demand`.
+
+Se pueden usar **Spot Instances** para aplicaciones **sin estado** o que **no necesiten persistencia**, tolerante a fallas y flexibles como big-data, cargas de trabajo contenerizada, CI/CD, web servers, computación de alto desempeño y cargas de trabajo de desarrollo y pruebas
+
+Puedes bloquear instancias de ser eliminen usando **Spot Block**.
+
+Y **Spot Fleet** es una colección de **Spot Instances** y adicionamente pero opcional instancias `On-Demand`.
+
+## Hibernación en EC2
+
+Con **EC2 Hibernate**, las instancias cargan mucho más rápido, el sistema operativo no necesita ser reiniciado debido a que el estado (RAM) es preservado y guardado en el `root device`. Y es util para Procesos largos y servicios que toman mucho tiempo en iniciar.
+
+### Resumen
+
+- **EC2 Hibernate** preserva el contenido de la RAM en almacenamiento persistente (**EBS**)
+- Mucho más rapido su inicio ya que no requiere que el sistema operativo sea reiniciado.
+- El tamaño de la RAM debe ser menor a 150 GB
+- Esta incluido en la familia de las instancia C3, C4, C5, M3, M4, M5, R3, R4, y R5
+- Disponible para Windows, Amazon Linux 2 AMI y Ubuntu
+- Las instancias no pueden estar hibernando por mas de 60 dias
+
+## AWS Cli
+
+### Caracteristicas
+
+- Se puede interactuar con AWS desde cualquier parte del mundo usando el CLI
+- Hay que habilitar los accesos vía IAM
