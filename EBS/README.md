@@ -14,6 +14,8 @@ Cada volumnes de EBS es replicada autimáticamente dentro de su zona de disponib
 - Cold HDD
 - Magnético
 
+![ebs_types](ebs_types.png)
+
 ### Caso de uso.
 
 #### SSD
