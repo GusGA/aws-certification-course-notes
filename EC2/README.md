@@ -104,3 +104,120 @@ Con **EC2 Hibernate**, las instancias cargan mucho más rápido, el sistema oper
 
 - Se puede interactuar con AWS desde cualquier parte del mundo usando el CLI
 - Hay que habilitar los accesos vía IAM
+
+## Instance Metadata
+
+- Se usa para obtener información de la instancia
+- Se obtiene la metadata accediendo via `cURL` a `http://169.254.169.254/latest/meta-data/`
+- Se obtiene el user-data accediendo via `cURL` a `http://169.254.169.254/latest/user-data/`
+
+## Amazon Elastic File System (Amazon EFS)
+
+Amazon Elastic File System (Amazon EFS) es un servicio de almacenamiento de archivos para las instancias de Amazon Elasctic Compute (`AWS EC2`). Amazon EFS es sencillo de usar y provee una interfaz simple que permite crear y configurar sistema de archivos rápida y facilmente.
+
+Con Amazon EFS, la capacidad de almacenamiento es elastica, crece y se encoge automaticamente a menidad que se agregan y se remueven archivos, por ende las aplicaciones tienen el almacenamiento que necesitan cuando lo necesitan.
+
+- Suporta el protocolo **Network File System** (`Version 4`).
+- Solo se paga por el almacenamiento usado (no se require pre-aprovisionamiento).
+- Se puede escalar hasta petabytes.
+- Los datos son almacenados a traves de multiples zonas de disponibilidad dentro de una región.
+- Consistencia "Lectura después de escritura" (`Read after Write`).
+
+## Amazon FSx for Lustre
+
+`Amazon FSx for Lustre` es un sistema de archivos complemente gestionado que esta optimizado para cargas de trabajo de compunto intensivo, tales como computación de alto desemepeño, machine learning, flujos de procesamiento de `media data` y diseño de autimatización electronica (EDA).
+
+## Amazon FSx para Windows File Server
+
+### Diferencias entre Windows FSx, Lustre FSx y EFS
+
+#### Windows FSx
+
+- Un servidor de Windows gestionado que corre un servicio de archivos basado en `Windows Server Message Block (SMB)`
+- Deseñado para Windows y aplicaciones de Windows
+- Soporta usuarios, listad de control de acceso y politicas de seguridad de Active Directory along with nombre de espacio (`namespaces`) y replicación DFS `Distributed File System`
+
+#### Lustre FSx
+
+- DDiseñado especificamente para el procesamiento rápido de cargas de trabajo como machine learning, computación de alto desempeño, procesamiento de video y modelamiento finaciero entre otros.
+- Permite desplegar y correr un sistema de archivos que provee acceso por de bajo de los milisegundos a los datos y permite escribir y leer los datos hasta velocidades de cientos de gigabytes por segundo de desempeño y millones de IOPS.
+
+#### EFS
+
+- Un archivador NAS administrado para instancias EC2 basado en Network File System (**NFS**) v4
+- Uno de los primeros protocolos nativos de Unix y Linux para compartir archivos a traves de la red.
+
+### Escenarios para EFS, Lustre FSx y Windows FSx
+
+#### EFS
+
+Cuando se necesite almacenamiento distribuido y altamente resilente para instancia de linux o aplicaciones basadas en linux.
+
+#### Windows FSx
+
+Cuando se necesite centralizar el almacenamieto de aplicaciones basadas en windows, tales como Sharepoint, Microsoft SQL Server, Workspaces, ISS Web Server o cualquier otra aplicación nativa de Microsoft.
+
+#### Lustre FSx
+
+Cuando se necesite almacenamiento distribuido de alta velocidad y capacidad. Esto sería para aplicaciones que necesitan computo de alto desempeño, modelamiento financiero etc. `FSx for Lustre` puede almacenar datos directamente en **S3**
+
+## EC2 Placement Groups
+
+- Un `clustered placement group` no pueden abarcar multiples zonas de disponibilidad (`AZ`)
+- `Spread` y `Partitioned` si pueden abarcar multiples `AZ`
+- El nombre que se especifique para un `placement group` debe ser unico dentro de la cuenta de `AWS`
+- Solo ciertos tipos de instancias puede ser desplegadas en un `placement group` (Compute Optimized, GPU, Memory Optimized, Storage Optimized).
+- AWS recomienda instancias homogeneas dentro de un `clustered placement group`.
+- No se pueden unir `plpacement groups`
+- Se puede mover una instancia existente dentro de un `placement group`. Antes de mover la instancia, esta debe estar en estado detenido. Se pueden remover instancias usando el CLI o el AWS SDK, no se puede hacer con web console todavía.
+
+#### Clustered Placement Group
+
+Grupos de instancias dentro de una misma zona de disponibilidad.
+
+##### Escenario
+
+- Baja latencia de red y alto rendimiento de red
+
+#### Spread Placement Group
+
+Grupo de instancias separadas bajo distinto hardware (distintos racks)
+
+##### Escenario
+
+- Instancias Criticas de EC2
+
+#### Partitioned Placement
+
+Multiples instancias instancias divididas en grupos colocadas en hardware separado.
+
+##### Escenario
+
+- Multiples Instancias de EC2 HDFS, HBase y Cassandra.
+
+## HPC - High Performnace Compute
+
+Se puede alcanzar HPC en AWS a traves de:
+
+- Data transfer:
+  - [Snowball o Snowmobile](../S3#snowball)
+  - [AWS DataSync](../S3#aws-data-sync) para lamacenar en S3, EFS, FSx para Windows.
+  - Direct Connect.
+- Compute and Networking:
+  - Instancias de EC2 con optimización de GPU o CPU.
+  - [**EC2 Fleets**](#spot-instances--spot-fleets).
+  - [Placement groups](#ec2-placement-groups).
+  - [Enhanced Networkong Single Root I/O virtualization (**SR-IOV**)](/Networking#en).
+  - [Elastic Network Adapters o **Inter 85229 Virtual Functions**](/Networking#en).
+  - [Elastic Fabric Adapters](/Networking#elastic-fabric-adapter)
+- Storage:
+  - Instace attached storage:
+    - [**EBS**](/EBS#ebs): Escala hasta 64000 IOPS
+    - [**Instance Storage**](/EBS#ebs-vs-instance-store-volumes): Escala hasta millones de IOPS, baja latencia
+  - Network Storage:
+    - [Amazon S3](../S3)
+    - [Amazon EFS](#amazon-elastic-file-system-amazon-efs)
+    - [Amazon FSx for Lustre](#lustre-fsx-1).
+- Orchestration y Automation
+  - AWS Batch
+  - AWS ParallelCluster
