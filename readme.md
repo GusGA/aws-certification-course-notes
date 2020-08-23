@@ -8,8 +8,10 @@ Notas del curso de AWS-SA escritas en español.
 
 - [IAM](/IAM)
 - [AWS Organizations](/AWS_Organizations)
+- [AWS Applications](/Applications)
 - [S3](/S3)
 - [CloudFront](/CloudFront)
+- [CloudWatch](/CloudWatch)
 - [Storage Gateway](/Storage_Gateway)
 - [EC2](/EC2)
 - [EBS](/EBS)

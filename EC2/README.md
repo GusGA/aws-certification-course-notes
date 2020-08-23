@@ -63,6 +63,27 @@ Servidores EC2 dedicados, estos pueden ayudar a reducir costos permitiendo utili
 - Los volúmenes root EBS del AMI por defecto pueden ser cifrada, tambien se puede hacer via aplicaciones de terceros para cifrar el volumen o crear un AMI desde la consola o vía API.
 - Volumenes adicionales pueden ser cifrados.
 
+## Tipos de Instancias
+
+- **F** por FPGA.
+- **I** por IOPS.
+- **G** Graphics.
+- **H** High Disk Throughput.
+- **T** Proposito General (**T2-Micro**).
+- **D** por Density.
+- **R** por RAM.
+- **M** por (MAIN CHOICE) Elección principal para aplicaciones de proposito general.
+- **C** por Compute
+- **P** por Graphics (**Pictures**)
+- **X** por Extreme memory
+- **Z** por Extreme memory y CPU
+- **A** por Cargas de trabajos basadas en **ARM**
+- **U** por Bare Metal
+
+#### Protip:
+
+FIGHT DR MC PXZ AU -> Fight Doctor Mc Pixi AU
+
 ## Grupos de seguridad en EC2
 
 - Los cambios efectuados en los grupos de seguridad tienen efectos inmediatos en las instancias involucradas.

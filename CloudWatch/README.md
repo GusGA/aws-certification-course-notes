@@ -33,7 +33,7 @@ Es un servicio que aumenta la visibilidad de la actividad del Usuario y recursos
 
 Puedes identificar cuales usuarios y cuentas llamaron AWS, la IP de origen desde donde se hicieron los llamados y cuando se hicieron.
 
-### Diferencias entre CloudWatch y ClouedTrail
+### Diferencias entre CloudWatch y CloudTrail
 
 - CloudWatch monitorea rendimiento.
 - CloudTrail monitorea llamadas al API en la plataforma de AWS.
